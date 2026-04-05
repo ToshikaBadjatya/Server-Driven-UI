@@ -9,7 +9,7 @@ import com.example.xml.screens.SingleScreenFragment
 class TabAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle,): FragmentStateAdapter(fragmentManager,lifecycle,) {
    val list=mutableListOf<SingleScreenFragment>()
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+        return list[position]
     }
 
     override fun getItemCount(): Int {

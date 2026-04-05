@@ -1,60 +1,47 @@
 package com.example.xml
 
+import androidx.fragment.app.FragmentManager
 import android.content.Context
+import androidx.fragment.app.Fragment
+import com.example.xml.screens.MultiScreenFragment
+import com.example.xml.screens.SingleScreenFragment
 import org.json.JSONArray
 import org.json.JSONObject
 
-class XMLRenderer(multiPage: Boolean, jsonString: String?) {
+class XMLRenderer(
+    private val fragmentManager: FragmentManager,
+    private val containerId: Int,
+    multiPage: Boolean,
+    jsonString: String?
+) {
     init {
 
-    }
-     fun renderPrimitive(context: Context,item: Any) {
-
-    }
-    fun renderUi(context: Context,jsonString: String){
-        try {
-           val jsonObject= JSONObject(jsonString)
-           renderObject(context,jsonObject)
-        }catch (e: Exception){
-            val jsonArray= JSONArray(jsonString)
-            renderArray(context,jsonArray)
+        val fragment = if (multiPage) {
+            MultiScreenFragment.newInstance(jsonString ?: "")
+        } else {
+            SingleScreenFragment.newInstance(jsonString ?: "")
         }
-        catch (e: Exception){
-            throw Exception("Invalid input json")
-        }
-    }
 
-     fun renderObject(context: Context,json: JSONObject) {
-
+        fragmentManager.beginTransaction()
+            .add(containerId, fragment as Fragment)
+            .commit()
     }
-    fun renderArray(context: Context,json: JSONArray) {
-       for(i in 0 until json.length()){
-           val ele=json.get(i)
-           when(ele){
-               is JSONObject->{
-                   renderObject(context,ele)
-               }
-               else->{
-                   renderPrimitive(context,ele)
-               }
-           }
-       }
-    }
-    class Builder() {
+    class Builder(val fragmentManager: FragmentManager, val containerId: Int) {
         private var multiPage: Boolean = false
         private var jsonString: String? = null
-        fun setMultiPage(multiPage: Boolean): XMLRenderer.Builder {
+
+        fun setMultiPage(multiPage: Boolean): Builder {
             this.multiPage = multiPage
-            return this@Builder
+            return this
         }
 
-        fun setJsonString(jsonString: String): XMLRenderer.Builder {
+        fun setJsonString(jsonString: String): Builder {
             this.jsonString = jsonString
             return this
         }
 
         fun build(): XMLRenderer {
-            return XMLRenderer(multiPage,jsonString)
+            return XMLRenderer(fragmentManager, containerId, multiPage, jsonString)
         }
     }
 }
