@@ -23,8 +23,13 @@ class DescriptionUiView @JvmOverloads constructor(
     }
 
     override fun render(jsonObject: JSONObject) {
-        title=jsonObject.optString("description")
+        title = jsonObject.optString("value")
+        textView.text = title
         addView(textView)
+    }
+
+    override fun getType(): String {
+        return "description"
     }
 
     val textView = TextView(context).apply {

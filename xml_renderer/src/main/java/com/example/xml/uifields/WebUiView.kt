@@ -21,10 +21,14 @@ class WebUiView(context: Context): BaseUiView<String>(context) {
     }
 
     override fun render(jsonObject: JSONObject) {
-        url=jsonObject.optString("url")
+        url = jsonObject.optString("value")
         url?.let {
             webView.loadUrl(it)
             addView(webView)
         }
+    }
+
+    override fun getType(): String {
+        return "webpage"
     }
 }

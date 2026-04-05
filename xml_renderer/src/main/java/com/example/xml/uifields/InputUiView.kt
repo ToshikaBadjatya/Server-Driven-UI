@@ -12,4 +12,8 @@ class InputUiView(context: Context): BaseUiView<String>(context) {
     override fun render(jsonObject: JSONObject) {
         TODO("Not yet implemented")
     }
+
+    override fun getType(): String {
+        return "input"
+    }
 }

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         }
         XMLRenderer.Builder(supportFragmentManager, R.id.fragment_container)
             .setMultiPage(true)
-            .setJsonString(SampleJSON.multiPage1)
+            .setJsonString(SampleJSON.multiPage)
             .build()
     }
 }

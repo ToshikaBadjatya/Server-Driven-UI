@@ -20,7 +20,12 @@ class TitleUiView(context: Context): BaseUiView<String>(context,) {
     }
 
     override fun render(jsonObject: JSONObject) {
-        title=jsonObject.optString("title")
+        title = jsonObject.optString("value")
+        textView.text = title
         addView(textView)
+    }
+
+    override fun getType(): String {
+        return "title"
     }
 }
