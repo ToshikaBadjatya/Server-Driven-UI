@@ -1,17 +1,18 @@
 package com.example.xml.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.xml.R
+import com.example.xml.container.FieldContainer
+import com.example.xml.databinding.FragmentSingleScreenBinding
 
 
 private const val JSON_OBJECT = "json_object"
 
 
 class SingleScreenFragment : BaseFragment() {
+    lateinit var binding: FragmentSingleScreenBinding
     // TODO: Rename and change types of parameters
     private var jsonString: String?=null
 
@@ -29,11 +30,14 @@ class SingleScreenFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_single_screen, container, false)
+        binding= FragmentSingleScreenBinding.inflate(requireActivity().layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+       renderUi(requireContext(),jsonString, binding.container)
+
 
     }
     companion object {
