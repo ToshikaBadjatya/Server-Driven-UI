@@ -9,10 +9,10 @@ sealed class CustomErrors(
         "JSON constraints invalid to render"
     )
 
-    data class MissingField(
+    data class FiedlErrors(
         val fieldName: String
     ) : CustomErrors(
-        "Missing required field: $fieldName"
+        "Error in field: $fieldName"
     )
 
     // Parsing / mapping issues
@@ -31,4 +31,5 @@ sealed class CustomErrors(
     data object Unknown : CustomErrors(
         "Something went wrong"
     )
+
 }

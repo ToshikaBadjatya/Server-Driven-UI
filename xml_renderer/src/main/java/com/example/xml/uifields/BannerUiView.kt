@@ -6,11 +6,10 @@ import org.json.JSONObject
 
 class BannerUiView(context: Context): BaseUiView<String>(context,)  {
     override fun getFieldData(): String? {
-        TODO("Not yet implemented")
+        return null
     }
 
     override fun render(jsonObject: JSONObject) {
-        TODO("Not yet implemented")
     }
 
     override fun getType(): String {

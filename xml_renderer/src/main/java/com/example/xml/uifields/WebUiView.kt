@@ -14,7 +14,7 @@ class WebUiView(context: Context): BaseUiView<String>(context) {
     val webView = WebView(context).apply {
         webViewClient = WebViewClient()
         settings.javaScriptEnabled = true
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
     }
     override fun getFieldData(): String? {
         return url
@@ -30,5 +30,11 @@ class WebUiView(context: Context): BaseUiView<String>(context) {
 
     override fun getType(): String {
         return "webpage"
+    }
+    fun onDestroy() {
+        webView.apply {
+            stopLoading()
+            destroy()
+        }
     }
 }

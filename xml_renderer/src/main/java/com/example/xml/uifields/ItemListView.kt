@@ -26,11 +26,10 @@ class VerticalListView(context: Context): ItemListView(context){
 }
 abstract class ItemListView(context: Context): BaseUiView<List<Any>>(context) {
     override fun getFieldData(): List<Any>? {
-        TODO("Not yet implemented")
+        return emptyList()
     }
 
     override fun render(jsonObject: JSONObject) {
-        TODO("Not yet implemented")
     }
     abstract fun getOrientation(): Int
 }

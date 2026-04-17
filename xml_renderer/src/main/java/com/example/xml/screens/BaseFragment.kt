@@ -14,6 +14,7 @@ import com.example.xml.uifields.TitleUiView
 import com.example.xml.uifields.VerticalListView
 import com.example.xml.uifields.WebUiView
 import com.example.xml.uifields.base.BaseUiView
+import com.example.xml.uifields.base.ImageView
 import com.example.xml.uifields.base.PossibleAlignments
 import org.json.JSONArray
 import org.json.JSONException
@@ -90,7 +91,8 @@ open class BaseFragment: Fragment() {
         InputUiView(context),
         HorizontalListView(context),
         VerticalListView(context),
-        SearchView(context)
+        SearchView(context),
+        ImageView(context)
     ).associateBy { it.getType() }
 
     fun getViewFromType(context: Context, type: String): BaseUiView<*>? {

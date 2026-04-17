@@ -14,6 +14,8 @@ class DescriptionUiView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : BaseUiView<String>(context) {
+    var margin=12
+
 
     var title: String?=null
 
@@ -25,6 +27,7 @@ class DescriptionUiView @JvmOverloads constructor(
     override fun render(jsonObject: JSONObject) {
         title = jsonObject.optString("value")
         textView.text = title
+
         addView(textView)
     }
 
@@ -35,7 +38,9 @@ class DescriptionUiView @JvmOverloads constructor(
     val textView = TextView(context).apply {
         textSize = 14f
         setTypeface(typeface, Typeface.NORMAL)
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            setMargins(margin, margin, margin, margin)
+        }
     }
 
 

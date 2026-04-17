@@ -8,10 +8,13 @@ import org.json.JSONObject
 
 class TitleUiView(context: Context): BaseUiView<String>(context,) {
     var title: String?=null
+    var margin=12
     val textView = TextView(context).apply {
         textSize = 20f
         setTypeface(typeface, Typeface.BOLD)
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            setMargins(margin, margin, margin, margin)
+        }
     }
 
 
