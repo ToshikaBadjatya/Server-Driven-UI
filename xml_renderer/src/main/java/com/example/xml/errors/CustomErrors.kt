@@ -9,7 +9,7 @@ sealed class CustomErrors(
         "JSON constraints invalid to render"
     )
 
-    data class FiedlErrors(
+    data class FieldErrors(
         val fieldName: String
     ) : CustomErrors(
         "Error in field: $fieldName"

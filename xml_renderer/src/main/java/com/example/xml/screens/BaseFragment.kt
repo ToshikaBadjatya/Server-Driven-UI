@@ -7,14 +7,14 @@ import androidx.fragment.app.Fragment
 import com.example.xml.errors.CustomErrors
 import com.example.xml.uifields.BannerUiView
 import com.example.xml.uifields.DescriptionUiView
+import com.example.xml.uifields.HorizontalGridView
 import com.example.xml.uifields.HorizontalListView
 import com.example.xml.uifields.InputUiView
 import com.example.xml.uifields.SearchView
 import com.example.xml.uifields.TitleUiView
 import com.example.xml.uifields.VerticalListView
-import com.example.xml.uifields.WebUiView
 import com.example.xml.uifields.base.BaseUiView
-import com.example.xml.uifields.base.ImageView
+import com.example.xml.uifields.ImageView
 import com.example.xml.uifields.base.PossibleAlignments
 import org.json.JSONArray
 import org.json.JSONException
@@ -86,10 +86,10 @@ open class BaseFragment: Fragment() {
     private fun buildRegistry(context: Context): Map<String, BaseUiView<*>> = listOf(
         TitleUiView(context),
         DescriptionUiView(context),
-        WebUiView(context),
         BannerUiView(context),
         InputUiView(context),
         HorizontalListView(context),
+        HorizontalGridView(context),
         VerticalListView(context),
         SearchView(context),
         ImageView(context)

@@ -3,7 +3,7 @@ package com.example.server_driven_ui
 object SampleJSON {
 
     // Page 1 — Profile tab (header, bio, highlights, posts)
-    // Page 2 — Tagged tab
+    // Page 2 — Tagged tab (banner centered, column content below)
     val multiPage = """
         [
             {
@@ -55,7 +55,7 @@ object SampleJSON {
                     },
                     {
                         "type": "description",
-                        "value": "📸 Photographer & traveller\n🌍 Exploring the world one frame at a time\n🔗 linktr.ee/johndoe"
+                        "value": "Photographer and traveller. Exploring the world one frame at a time."
                     },
                     {
                         "alignment": "row",
@@ -91,25 +91,90 @@ object SampleJSON {
                         ]
                     },
                     {
-                        "type": "horizontal_list",
-                        "value": "posts_grid"
+                        "type": "horizontal_grid",
+                        "items": [
+                            {
+                                "title": "Sunset in Bali",
+                                "description": "Golden hour magic",
+                                "img": "https://picsum.photos/seed/p1/300/300"
+                            },
+                            {
+                                "title": "Street Food Tokyo",
+                                "description": "Ramen at midnight",
+                                "img": "https://picsum.photos/seed/p2/300/300"
+                            },
+                            {
+                                "title": "Alps Hiking",
+                                "description": "Above the clouds",
+                                "img": "https://picsum.photos/seed/p3/300/300"
+                            },
+                            {
+                                "title": "Santorini Views",
+                                "description": "Blue domes and white walls",
+                                "img": "https://picsum.photos/seed/p4/300/300"
+                            },
+                            {
+                                "title": "NYC Skyline",
+                                "description": "City that never sleeps",
+                                "img": "https://picsum.photos/seed/p5/300/300"
+                            },
+                            {
+                                "title": "Safari Kenya",
+                                "img": "https://picsum.photos/seed/p6/300/300"
+                            }
+                        ]
                     }
                 ]
             },
             {
-                "alignment": "column",
+                "alignment": "box",
                 "content": [
+                  
                     {
-                        "type": "title",
-                        "value": "Tagged"
-                    },
-                    {
-                        "type": "description",
-                        "value": "Photos and videos john.doe has been tagged in."
-                    },
-                    {
-                        "type": "vertical_list",
-                        "value": "tagged_posts"
+                        "alignment": "column",
+                        "content": [
+                            {
+                                "type": "title",
+                                "value": "Tagged"
+                            },
+                            {
+                                "type": "description",
+                                "value": "Photos and videos john.doe has been tagged in."
+                            },
+                            {
+                                "type": "vertical_list",
+                                "items": [
+                                    {
+                                        "title": "Tagged by @travel.world",
+                                        "description": "Best travel photographer of 2024",
+                                        "img": "https://picsum.photos/seed/t1/300/300"
+                                    },
+                                    {
+                                        "title": "Tagged by @gearheads",
+                                        "description": "Loving the new lens setup",
+                                        "img": "https://picsum.photos/seed/t2/300/300"
+                                    },
+                                    {
+                                        "title": "Tagged by @foodie.diaries",
+                                        "description": "Spotted at the best ramen spot in town",
+                                        "img": "https://picsum.photos/seed/t3/300/300"
+                                    },
+                                    {
+                                        "title": "Tagged by @hikersunite",
+                                        "img": "https://picsum.photos/seed/t4/300/300"
+                                    }
+                                ]
+                            },
+                              {
+                              "type": "banner",
+                              "title": "Creator of the Month",
+                              "color": "yellow",
+                              "description": "john.doe has been recognised as a top creator this month. Keep sharing your amazing work!",
+                              "icon": "https://i.pravatar.cc/80",
+                              "start_time": "2026-04-01T00:00:00Z",
+                              "end_time": "2026-04-30T23:59:59Z"
+                             },
+                        ]
                     }
                 ]
             }

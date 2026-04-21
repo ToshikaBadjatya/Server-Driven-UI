@@ -1,19 +1,22 @@
-package com.example.xml.uifields.base
+package com.example.xml.uifields
 
+import android.R.color
 import android.content.Context
 import android.util.Log
-import android.widget.ImageView as AndroidImageView
+import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
-import com.example.xml.R
+import com.example.xml.uifields.base.BaseUiView
 import org.json.JSONObject
 
 class ImageView(context: Context) : BaseUiView<String>(context) {
 
     var url: String? = null
 
-    private val imageView = AndroidImageView(context).apply {
+    private val imageView = AppCompatImageView(context).apply {
         layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        scaleType = AndroidImageView.ScaleType.CENTER_CROP
+        scaleType= ImageView.ScaleType.CENTER_CROP
+        setBackgroundColor(color.darker_gray)
         adjustViewBounds = true
     }
 
