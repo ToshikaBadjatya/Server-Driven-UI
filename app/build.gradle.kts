@@ -61,7 +61,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     //include module
-    implementation(project(":compose_renderer"))
     implementation(project(":xml_renderer"))
 
 }

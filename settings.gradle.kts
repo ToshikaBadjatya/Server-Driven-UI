@@ -22,6 +22,3 @@ dependencyResolutionManagement {
 rootProject.name = "Server-Driven-Ui"
 include(":app")
 include(":xml_renderer")
-include(":compose_renderer")
-include(":common")
-include(":common_render")

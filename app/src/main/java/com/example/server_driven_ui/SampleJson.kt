@@ -1,4 +1,4 @@
-package com.example.server_driven_ui
+    package com.example.server_driven_ui
 
 object SampleJSON {
 
